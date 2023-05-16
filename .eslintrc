@@ -24,6 +24,7 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
+  "ignorePatterns": ["tailwind.config.js"],
   "rules": {
     "semi": "off",
     "react/jsx-filename-extension": [
