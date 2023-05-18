@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home } from '../Pages/Home';
-import { Junior } from '../Pages/Junior';
-import { Midle } from '../Pages/Midle';
-import { Senior } from '../Pages/Senior';
+import { Home } from '../pages/Home';
+import { Junior } from '../pages/Junior';
+import { Midle } from '../pages/Midle';
+import { Senior } from '../pages/Senior';
 
 export const Navigator = () => {
   return (
