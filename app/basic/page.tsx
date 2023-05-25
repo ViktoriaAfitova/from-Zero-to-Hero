@@ -1,6 +1,4 @@
-import { Accordion } from '../components/Accordion';
-
-export const Junior = () => {
+export default function Basic() {
   return (
     <div className='flex flex-col h-screen'>
       <header className='flex justify-center py-10 bg-grayDark'>
@@ -9,9 +7,8 @@ export const Junior = () => {
       <main className='flex-grow bg-graphite justify-start'>
         <div className='py-10 px-20 w-98'>
           <h2 className='font-bold text-pinkLight mb-4'>Java Script</h2>
-          <Accordion />
         </div>
       </main>
     </div>
   );
-};
+}
