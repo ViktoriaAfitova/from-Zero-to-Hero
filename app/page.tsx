@@ -19,7 +19,7 @@ export default function Home() {
             />
             <div className='border-4 border-gray w-100'>
               <Link href='/basic' className='text-white px-6'>
-                Junior
+                Basic
               </Link>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function Home() {
             />
             <div className='border-4 border-violet w-100'>
               <Link href='/advanced' className='text-white px-6'>
-                Senior
+                Advanced
               </Link>
             </div>
           </div>
