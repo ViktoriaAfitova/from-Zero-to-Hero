@@ -31,7 +31,7 @@
       "error",
       {
         "selector": ["enum", "enumMember"],
-        "format": ["StrictPascalCase"]
+        "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"]
       }
     ],
     "unicorn/filename-case": [
