@@ -1,40 +1,31 @@
-import fs from 'fs';
 import Link from 'next/link';
-import matter from 'gray-matter';
-import { CardMetadata } from '@/types';
+import { allPosts, Post } from 'contentlayer/generated';
 
-const getCardMetadata = (): CardMetadata[] => {
-  const folder = 'content/';
-  const files = fs.readdirSync(folder);
-  const mdxCards = files.filter((file) => file.endsWith('.mdx'));
-  // const slugs = mdxCards.map((file) => file.replace('.mdx', ''));
-  // return slugs;
-
-  const cards = mdxCards.map((fileName) => {
-    const fileContents = fs.readFileSync(`content/${fileName}`, 'utf-8');
-    const matterResult = matter(fileContents);
-
-    return {
-      title: matterResult.data.title,
-      content: matterResult.data.content,
-      slug: fileName.replace('.mdx', ''),
-    };
+export async function getData() {
+  const posts = allPosts.map((post) => {
+    return post;
   });
 
-  return cards;
-};
+  return posts;
+}
 
-const Basic = () => {
-  const cardMetadata = getCardMetadata();
-  const cardPreview = cardMetadata.map((card, title) => (
-    <div className='flex gap-6 mt-6' key={title}>
-      <div className='p-8 rounded-md shadow-md bg-white'>
-        <Link href={`/content/${card.slug}`}>
-          <h3 className='text-xl font-semibold'>{card.title}</h3>
+function PostCard(post: Post) {
+  return (
+    <div className='p-8 mb-10 ml-20 mr-20 rounded-md shadow-md bg-white'>
+      <h2 className='text-xl font-semibold'>
+        <Link
+          href={post.url}
+          className='text-blue-700 hover:text-blue-900 dark:text-blue-400'
+        >
+          {post.title}
         </Link>
-      </div>
+      </h2>
     </div>
-  ));
+  );
+}
+
+const Basic = async () => {
+  const posts = await getData();
 
   return (
     <div className='flex flex-col h-screen'>
@@ -45,7 +36,11 @@ const Basic = () => {
         <div className='pt-10 px-20 w-98'>
           <h2 className='font-bold text-pinkLight mb-4'>Java Script</h2>
         </div>
-        <div>{cardPreview}</div>
+        <div>
+          {posts.map((post, title) => (
+            <PostCard key={title} {...post} />
+          ))}
+        </div>
       </main>
     </div>
   );
