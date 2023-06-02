@@ -22,18 +22,13 @@ export default function PostPage({ params }: PageProps) {
   }
 
   return (
-    <div className='bg-graphite h-screen'>
-      <div className='mr-40 ml-40 rounded-md shadow-md bg-white'>
-        <article className='mx-auto max-w-xl py-8'>
-          <div className='mb-8 text-center'>
-            <h1 className='text-3xl font-bold'>{post.title}</h1>
-          </div>
-          <div
-            className='[&>*]:mb-0 [&>*:last-child]:mb-0'
-            dangerouslySetInnerHTML={{ __html: post.body.html }}
-          />
-        </article>
-      </div>
+    <div className='bg-graphite p-12'>
+      <article className='mx-auto max-w-xl p-8 border-2 border-gray rounded-md shadow-md bg-white bg-opacity-40 w-auto h-screen'>
+        <div className='mb-8 text-center'>
+          <h1 className='mt-10 text-3xl font-bold'>{post.title}</h1>
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      </article>
     </div>
   );
 }
