@@ -2,13 +2,7 @@ import Link from 'next/link';
 import { allPosts, Post } from 'contentlayer/generated';
 import Image from 'next/image';
 
-export async function getData() {
-  const posts = allPosts.map((post) => {
-    return post;
-  });
-
-  return posts;
-}
+const ICON_SIZE = 50;
 
 function PostCard(post: Post) {
   return (
@@ -22,8 +16,8 @@ function PostCard(post: Post) {
   );
 }
 
-const Basic = async () => {
-  const posts = await getData();
+const Basic = () => {
+  const posts = allPosts;
 
   return (
     <div className='flex flex-col h-screen'>
@@ -33,12 +27,12 @@ const Basic = async () => {
       <main className='flex flex-grow bg-graphite justify-around items-center'>
         <nav className='flex gap-20 mt-20'>
           <div className='flex flex-col items-center'>
-            <h2 className='font-bold text-pinkLight mb-4'>Java Script</h2>
+            <h2 className='font-bold text-pinkLight mb-4'>JavaScript</h2>
             <Image
               src='/arrowDownIcon.png'
               alt='arrow'
-              width={50}
-              height={50}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
               className='mb-10'
             />
             <div>
@@ -52,8 +46,8 @@ const Basic = async () => {
             <Image
               src='/arrowDownIcon.png'
               alt='arrow'
-              width={50}
-              height={50}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
               className='mb-10'
             />
             <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 bg-opacity-20'>
@@ -61,12 +55,12 @@ const Basic = async () => {
             </div>
           </div>
           <div className='flex flex-col items-center'>
-            <h2 className='font-bold text-pinkLight mb-4'>Type Script</h2>
+            <h2 className='font-bold text-pinkLight mb-4'>TypeScript</h2>
             <Image
               src='/arrowDownIcon.png'
               alt='arrow'
-              width={50}
-              height={50}
+              width={ICON_SIZE}
+              height={ICON_SIZE}
               className='mb-10'
             />
             <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 bg-opacity-20'>

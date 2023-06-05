@@ -1,4 +1,6 @@
 import { allPosts } from '@/.contentlayer/generated';
+import { notFound } from 'next/navigation';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface PageProps {
   params: {
@@ -6,20 +8,20 @@ interface PageProps {
   };
 }
 
-export async function generateStaticParams(): Promise<PageProps['params'][]> {
+export function generateStaticParams(): PageProps['params'][] {
   return allPosts.map(({ url }) => ({
     url: url,
   }));
 }
 
 export default function PostPage({ params }: PageProps) {
-  const post = allPosts.find(
-    ({ url }) => url.replaceAll('/posts/', '') === params.url,
-  );
+  const post = allPosts.find(({ url }) => url.endsWith(params.url));
 
   if (!post) {
-    return null;
+    notFound();
   }
+
+  const MDXContent = useMDXComponent(post.body.code);
 
   return (
     <div className='bg-graphite p-12'>
@@ -27,7 +29,7 @@ export default function PostPage({ params }: PageProps) {
         <div className='mb-8 text-center'>
           <h1 className='mt-10 text-3xl font-bold'>{post.title}</h1>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        <MDXContent />
       </article>
     </div>
   );
