@@ -1,0 +1,38 @@
+---
+title: Object
+---
+
+В JavaScript, объекты представляют собой ссылочный тип данных, который используется для хранения и организации значений. Объекты могут содержать свойства и методы, которые определяют их состояние и поведение. Объекты в JavaScript являются динамическими, что означает, что их свойства и методы могут быть добавлены, изменены или удалены в процессе выполнения программы.
+
+### Клонирования объектов:
+
+- поверхностное клонирование с помощью оператора spread **(...)**:
+
+```JavaScript
+const originalObject = { name: "John", age: 30 };
+const clonedObject = { ...originalObject };
+```
+
+- поверхностное клонирование с использованием метода **Object.assign()**:
+
+```JavaScript
+const originalObject = { name: "John", age: 30 };
+const clonedObject = Object.assign({}, originalObject);
+```
+
+- глубокое клонирование объекта с использованием **JSON.parse()** и **JSON.stringify()**:
+
+```JavaScript
+const originalObject = { name: "John", age: 30 };
+const clonedObject =
+JSON.parse(JSON.stringify(originalObject));
+```
+
+_Примечание: Этот метод может быть непригодным, если объект содержит функции, регулярные выражения или другие особые типы данных, которые не могут быть сериализованы в JSON._
+
+- глубокое клонирование с использованием библиотеки **Lodash**:
+
+```JavaScript
+const originalObject = { name: "John", age: 30 };
+const clonedObject = _.cloneDeep(originalObject);
+```

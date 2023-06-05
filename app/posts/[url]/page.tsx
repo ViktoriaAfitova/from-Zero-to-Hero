@@ -27,7 +27,7 @@ export default function PostPage({ params }: PageProps) {
     <div className='bg-graphite p-12'>
       <article className='mx-auto max-w-xl p-8 border-2 border-gray rounded-md shadow-md bg-white bg-opacity-40 w-auto h-screen'>
         <div className='mb-8 text-center'>
-          <h1 className='mt-10 text-3xl font-bold'>{post.title}</h1>
+          <h1 className='mt-0 text-3xl font-bold'>{post.title}</h1>
         </div>
         <MDXContent />
       </article>
