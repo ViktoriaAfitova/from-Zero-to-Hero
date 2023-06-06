@@ -6,13 +6,13 @@ const ICON_SIZE = 50;
 
 function PostCard(post: Post) {
   return (
-    <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 bg-opacity-20'>
-      <h2 className='text-m font-semibold'>
-        <Link href={post.url} className='text-black hover:text-gray'>
+    <Link href={post.url}>
+      <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 bg-opacity-20 cursor-pointer'>
+        <h2 className='text-m font-semibold text-black hover:text-gray'>
           {post.title}
-        </Link>
-      </h2>
-    </div>
+        </h2>
+      </div>
+    </Link>
   );
 }
 
