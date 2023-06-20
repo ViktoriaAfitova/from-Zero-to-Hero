@@ -7,7 +7,7 @@ const ICON_SIZE = 50;
 function DocCard(doc: DocJS) {
   return (
     <Link href={`/js-core/${doc.slugAsParams}`}>
-      <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+      <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
         <h2 className='hover:text-gray'>{doc.title}</h2>
       </div>
     </Link>
