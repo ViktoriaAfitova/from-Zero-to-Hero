@@ -1,21 +1,21 @@
 import Link from 'next/link';
-import { allPosts, Post } from 'contentlayer/generated';
+import { allDocJs, DocJS } from 'contentlayer/generated';
 import Image from 'next/image';
 
 const ICON_SIZE = 50;
 
-function PostCard(post: Post) {
+function DocCard(doc: DocJS) {
   return (
-    <Link href={post.url}>
-      <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
-        <h2 className='hover:text-gray'>{post.title}</h2>
+    <Link href={`/js-core/${doc.slugAsParams}`}>
+      <div className='p-2 mb-2 ml-20 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+        <h2 className='hover:text-gray'>{doc.title}</h2>
       </div>
     </Link>
   );
 }
 
 const Basic = () => {
-  const posts = allPosts;
+  const docs = allDocJs;
 
   return (
     <div className='flex flex-col h-screen'>
@@ -36,8 +36,8 @@ const Basic = () => {
               />
             </div>
             <div>
-              {posts.map((post, title) => (
-                <PostCard key={title} {...post} />
+              {docs.map((doc, title) => (
+                <DocCard key={title} {...doc} />
               ))}
             </div>
           </div>
