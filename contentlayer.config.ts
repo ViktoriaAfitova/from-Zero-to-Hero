@@ -24,10 +24,29 @@ export const DocJS = defineDocumentType(() => ({
   },
 }));
 
+export const DocBrowser = defineDocumentType(() => ({
+  name: 'DocBrowser',
+  filePathPattern: `browser/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+    slugAsParams: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: 'app/content',
   disableImportAliasWarning: true,
-  documentTypes: [DocJS],
+  documentTypes: [DocJS, DocBrowser],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
