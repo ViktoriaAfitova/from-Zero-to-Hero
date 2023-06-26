@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { allDocJs, DocJS } from 'contentlayer/generated';
+import {
+  allDocBrowsers,
+  allDocJs,
+  DocBrowser,
+  DocJS,
+} from 'contentlayer/generated';
 import Image from 'next/image';
 
 const ICON_SIZE = 50;
@@ -14,8 +19,19 @@ function DocCard(doc: DocJS) {
   );
 }
 
+function DocBrowserCard(doc: DocBrowser) {
+  return (
+    <Link href={`/browser/${doc.slugAsParams}`}>
+      <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+        <h2 className='hover:text-gray'>{doc.title}</h2>
+      </div>
+    </Link>
+  );
+}
+
 const Basic = () => {
   const docs = allDocJs;
+  const docsBrowser = allDocBrowsers;
 
   return (
     <div className='flex flex-col h-screen'>
@@ -52,8 +68,13 @@ const Basic = () => {
                 className='mb-10'
               />
             </div>
-            <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+            {/* <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
               <h2 className='hover:text-gray'>...in progress</h2>
+            </div> */}
+            <div>
+              {docsBrowser.map((doc, title) => (
+                <DocBrowserCard key={title} {...doc} />
+              ))}
             </div>
           </div>
           <div className='flex flex-col'>
