@@ -22,7 +22,7 @@ export default function PostPage({ params }: PageProps) {
 
   return (
     <div className='flex flex-col h-screen'>
-      <header className='flex justify-center py-10 bg-grayDark'></header>
+      <header className='flex justify-center py-10 bg-grayDark' />
       <main className='flex flex-grow bg-graphite justify-around items-center'>
         <article className='prose my-10 mx-auto p-8 border-4 border-gray rounded-md shadow-md bg-white w-auto'>
           <div className='mb-8 text-center'>

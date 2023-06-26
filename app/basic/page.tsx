@@ -68,9 +68,6 @@ const Basic = () => {
                 className='mb-10'
               />
             </div>
-            {/* <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
-              <h2 className='hover:text-gray'>...in progress</h2>
-            </div> */}
             <div>
               {docsBrowser.map((doc, title) => (
                 <DocBrowserCard key={title} {...doc} />
