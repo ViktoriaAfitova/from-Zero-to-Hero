@@ -1,0 +1,35 @@
+---
+title: DOM styles and classes
+---
+
+DOM (Document Object Model) предоставляет возможность изменять стили и классы элементов на веб-странице с помощью JavaScript. Вот как это делается:
+
+1. Изменение стилей элементов:
+
+- Стили элементов можно изменять непосредственно через их свойство style. Например, element.style.color = 'red'; изменит цвет текста элемента на красный.
+- Для доступа к конкретному CSS-свойству используется синтаксис element.style.property, где property - это имя CSS-свойства в стиле CamelCase. Например, element.style.backgroundColor = 'blue'; изменит фоновый цвет элемента на синий.
+- Если есть множество стилей, рекомендуется использовать классы, а не устанавливать каждое свойство стиля отдельно.
+
+2. Работа с классами элементов:
+
+- Чтобы добавить класс элементу, используется свойство classList. Например, element.classList.add('myClass'); добавит класс "myClass" элементу.
+- Чтобы удалить класс у элемента, используется метод remove(). Например, element.classList.remove('myClass'); удалит класс 'myClass' у элемента.
+- Можно проверять наличие класса с помощью метода contains(). Например, element.classList.contains('myClass'); вернет true, если у элемента есть класс 'myClass', и false в противном случае.
+- С помощью метода toggle() можно добавлять или удалять класс в зависимости от его наличия. Например, element.classList.toggle('myClass'); добавит класс 'myClass', если его нет у элемента, или удалит его, если он уже присутствует.
+
+Примеры использования изменения стилей и классов элементов:
+
+```javascript
+// Изменение стиля элемента
+var element = document.getElementById('myElement');
+element.style.color = 'red';
+element.style.backgroundColor = 'blue';
+
+// Добавление и удаление классов
+element.classList.add('myClass');
+element.classList.remove('otherClass');
+var hasClass = element.classList.contains('myClass');
+element.classList.toggle('active');
+```
+
+[Ссылка](https://learn.javascript.ru/styles-and-classes)
