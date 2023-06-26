@@ -1,0 +1,68 @@
+---
+title: DOM element search
+---
+
+Основные методы для поиска элементов:
+
+- **getElementById:** метод позволяет найти элемент по его уникальному идентификатору (ID). Возвращает один элемент или null, если элемент не найден.
+
+```javascript
+const element = document.getElementById('myElementId');
+```
+
+- **getElementsByClassName:** метод возвращает коллекцию элементов, у которых указанный CSS класс совпадает с одним из их классов.
+
+```javascript
+const elements = document.getElementsByClassName('myClass');
+```
+
+- **getElementsByTagName:** метод возвращает коллекцию элементов, у которых указанный тег совпадает с их тегом.
+
+```javascript
+const elements = document.getElementsByTagName('div');
+```
+
+- **querySelector:** метод позволяет найти первый элемент, который соответствует указанному селектору CSS.
+
+```javascript
+const element = document.querySelector('#myElementId .myClass');
+```
+
+- **querySelectorAll:** метод возвращает коллекцию всех элементов, которые соответствуют указанному селектору CSS.
+
+```javascript
+const elements = document.querySelectorAll('div.myClass');
+```
+
+- **matches:** метод проверяет, соответствует ли текущий элемент указанному селектору CSS. Возвращает true, если элемент соответствует селектору, иначе false.
+
+```javascript
+const element = document.getElementById('myElementId');
+if (element.matches('.myClass')) {
+  // Элемент соответствует селектору '.myClass'
+}
+```
+
+- **closest:** метод ищет ближайшего предка, который соответствует CSS-селектору. Если он соответствует селектору, поиск прекращается. Метод возвращает либо предка, либо null, если такой элемент не найден.
+
+```javascript
+<h1>Содержание</h1>
+
+<div class="contents">
+  <ul class="book">
+    <li class="chapter">Глава 1</li>
+    <li class="chapter">Глава 2</li>
+  </ul>
+</div>
+
+<script>
+  let chapter = document.querySelector('.chapter'); // LI
+
+  alert(chapter.closest('.book')); // UL
+  alert(chapter.closest('.contents')); // DIV
+
+  alert(chapter.closest('h1')); // null (потому что h1 - не предок)
+</script>
+```
+
+[Ссылка](https://learn.javascript.ru/searching-elements-dom)
