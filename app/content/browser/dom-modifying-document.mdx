@@ -1,0 +1,40 @@
+---
+title: DOM modifying a document
+---
+
+Существует несколько методов для создания и изменения узлов в DOM:
+
+1. Создание узлов:
+
+- **document.createElement(tag)** - создает элемент с указанным тегом. Например, document.createElement('div') создаст новый элемент `<div>`.
+- **document.createTextNode(value)** - создает текстовый узел с указанным значением. Этот метод редко используется.
+- **elem.cloneNode(deep)** - создает копию элемента. Если deep равен true, то копируются также все дочерние элементы.
+
+2. Вставка и удаление:
+
+- **node.append(...nodes or strings)** - вставляет узлы или строки в конец элемента node.
+- **node.prepend(...nodes or strings)** - вставляет узлы или строки в начало элемента node.
+- **node.before(...nodes or strings)** - вставляет узлы или строки непосредственно перед элементом node.
+- **node.after(...nodes or strings)** - вставляет узлы или строки непосредственно после элемента node.
+- **node.replaceWith(...nodes or strings)** - заменяет элемент node узлами или строками.
+- **node.remove()** - удаляет элемент node из DOM.
+
+3. Устаревшие методы:
+
+- **parent.appendChild(node)** - добавляет узел node в конец дочерних элементов parent.
+- **parent.insertBefore(node, nextSibling)** - вставляет узел node перед указанным соседним элементом nextSibling.
+- **parent.removeChild(node)** - удаляет узел node из списка дочерних элементов parent.
+- **parent.replaceChild(newElem, node)** - заменяет узел node на новый элемент newElem в списке дочерних элементов parent.
+
+4. Методы **elem.insertAdjacentHTML(where, html)**, **elem.insertAdjacentText** и **elem.insertAdjacentElement:**
+
+- **elem.insertAdjacentHTML(where, html)** вставляет HTML-фрагмент в соответствии со значением where:
+  - **"beforebegin"** - перед элементом elem.
+  - **"afterbegin"** - в начало элемента elem.
+  - **"beforeend"** - в конец элемента elem.
+  - **"afterend"** - после элемента elem.
+- **elem.insertAdjacentText** и **elem.insertAdjacentElement** работают аналогично, но вставляют текстовые строки и элементы соответственно.
+
+5. **document.write(html)** - этот метод используется для добавления HTML на страницу до её полной загрузки. Однако после загрузки страницы он может перезаписать весь документ. Обычно это используется в старых скриптах и не рекомендуется.
+
+[Ссылка](https://learn.javascript.ru/modifying-document)
