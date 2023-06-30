@@ -1,0 +1,76 @@
+---
+title: Bubbling & Capturing
+---
+
+**Bubbling и Capturing** - это два основных механизма распространения событий в DOM веб-страницы.
+
+**Bubbling (всплытие)** - механизм, при котором событие сначала срабатывает на самом вложенном элементе, а затем последовательно 'всплывает' вверх по иерархии DOM, вызывая обработчики событий всех родительских элементов до корневого элемента документа (обычно это document). Это означает, что обработчики событий сначала вызываются для вложенных элементов, а затем для их родителей и так далее.
+
+**Capturing (захват)** - противоположный механизм, при котором событие сначала срабатывает на корневом элементе документа и затем 'захватывает' каждый вложенный элемент, вызывая обработчики событий для них по порядку до достижения самого вложенного элемента.
+
+По умолчанию, когда навешивается обработчик события с помощью addEventListener(), событие использует механизм всплытия. Но, также можно использовать третий аргумент метода addEventListener(), который называется **useCapture**, чтобы указать, что нужно использовать механизм захвата события.
+
+1. Пример использования механизма всплытия:
+
+```javascript
+<div id="outer">
+  <div id="inner">
+    <button id="button">Click me</button>
+  </div>
+</div>
+
+<script>
+const button = document.getElementById('button');
+const inner = document.getElementById('inner');
+const outer = document.getElementById('outer');
+
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+});
+
+inner.addEventListener('click', function(event) {
+  console.log('Inner div clicked!');
+});
+
+outer.addEventListener('click', function(event) {
+  console.log('Outer div clicked!');
+});
+</script>
+```
+
+Если нажть на кнопку 'Click me', консоль выведет:
+
+```javascript
+Button clicked!
+Inner div clicked!
+Outer div clicked!
+```
+
+Поскольку событие click всплывает от вложенного элемента до родительских элементов, все обработчики событий для каждого элемента вызываются последовательно.
+
+2. Пример использования механизма захвата:
+
+```javascript
+outer.addEventListener('click', function(event) {
+  console.log('Outer div clicked!');
+}, true);
+
+inner.addEventListener('click', function(event) {
+  console.log('Inner div clicked!');
+}, true);
+
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+}, true);
+```
+
+В этом случае, если нажать на кнопку 'Click me', консоль выведет:
+
+```javascript
+Outer div clicked!
+Inner div clicked!
+Button clicked
+```
+
+
+[Ссылка](https://learn.javascript.ru/bubbling-and-capturing)
