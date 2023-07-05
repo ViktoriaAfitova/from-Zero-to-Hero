@@ -2,7 +2,6 @@
 title: Function
 ---
 
-
 В TypeScript функции могут быть объявлены с использованием различных синтаксических конструкций и типов данных, которые позволяют указывать типы параметров, тип возвращаемого значения и другую информацию о функции.
 
 1. Объявление функции с явными типами параметров и возвращаемого значения:
@@ -23,6 +22,7 @@ function greet(name: string, age?: number): void {
   }
 }
 ```
+
 Здесь age является необязательным параметром, обозначенным знаком ?, и может быть опущен при вызове функции.
 
 3. Функция с параметрами по умолчанию:
@@ -32,6 +32,7 @@ function multiply(x: number, y: number = 2): number {
   return x * y;
 }
 ```
+
 В этом примере параметр y имеет значение по умолчанию, равное 2. Если значение для y не указано при вызове функции, будет использовано значение по умолчанию.
 
 4. Функция с переменным числом аргументов:
@@ -41,6 +42,7 @@ function sum(...numbers: number[]): number {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 ```
+
 В этом примере функция sum принимает переменное количество аргументов типа number и возвращает их сумму. Оператор ... перед параметром numbers указывает на использование rest-параметра.
 
 5. Функция с типом возвращаемого значения void:
@@ -50,17 +52,22 @@ function logMessage(message: string): void {
   console.log(message);
 }
 ```
+
 В этом примере функция logMessage не возвращает значение (void) и просто выводит сообщение в консоль.
 
 6. Функция с типом обратного вызова (callback):
 
 ```typescript
-function processArray(array: number[], callback: (number: number) => void): void {
+function processArray(
+  array: number[],
+  callback: (number: number) => void,
+): void {
   for (let number of array) {
     callback(number);
   }
 }
 ```
+
 В этом примере функция processArray принимает массив чисел array и функцию обратного вызова callback, которая принимает одно число типа number и не возвращает значение (void).
 
 [Ссылка](https://metanit.com/web/typescript/2.2.php)

@@ -12,7 +12,7 @@ title: Function type & arrow functions
 
 ```typescript
 function hello(): void {
-  console.log("Hello TypeScript");
+  console.log('Hello TypeScript');
 }
 
 let message: () => void = hello;
@@ -25,14 +25,14 @@ message();
 - Стрелочные функции записываются в формате (параметры) => тело_функции.
 - Например, функция sum может быть определена как (x: number, y: number) => x + y.
 - Если стрелочная функция не требует указания типов параметров, то их можно опустить.
-- Например, функция square может быть определена как x => x * x.
+- Например, функция square может быть определена как x => x \* x.
 - Если функция не принимает параметры, то используются пустые круглые скобки.
 - Если функция принимает только один параметр, то скобки можно опустить.
 - Многострочные функции могут быть заключены в фигурные скобки.
 
 ```typescript
 let sum = (x: number, y: number) => x + y;
-let square = x => x * x;
+let square = (x) => x * x;
 
 console.log(sum(15, 35)); // 50
 console.log(square(5)); // 25
@@ -50,7 +50,11 @@ function sum(x: number, y: number): number {
   return x + y;
 }
 
-function mathOp(x: number, y: number, operation: (a: number, b: number) => number): number {
+function mathOp(
+  x: number,
+  y: number,
+  operation: (a: number, b: number) => number,
+): number {
   return operation(x, y);
 }
 

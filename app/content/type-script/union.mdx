@@ -5,6 +5,7 @@ title: union
 Объединение (union) позволяет объединить несколько типов в один. Объединение обозначается символом вертикальной черты (|) между типами. Это позволяет переменной или параметру функции принимать значения разных типов. Вот примеры использования объединений:
 
 1. Объединение примитивных типов:
+
 ```typescript
 let myVariable: string | number;
 
@@ -14,23 +15,27 @@ console.log(myVariable); // 'Hello'
 myVariable = 42;
 console.log(myVariable); // 42
 ```
+
 В этом примере переменная myVariable может содержать значения типа string или number.
 
 2. Объединение пользовательских типов:
+
 ```typescript
 type Shape = 'circle' | 'square' | 'triangle';
 
 function draw(shape: Shape) {
-  console.log("Drawing", shape);
+  console.log('Drawing', shape);
 }
 
-draw("circle");   // Drawing circle
-draw("square");   // Drawing square
-draw("triangle"); // Drawing triangle
+draw('circle'); // Drawing circle
+draw('square'); // Drawing square
+draw('triangle'); // Drawing triangle
 ```
+
 Здесь тип Shape представляет объединение строковых литералов 'circle', 'square' и 'triangle'. Функция draw принимает параметр типа Shape, который может быть одним из этих значений.
 
 3. Объединение с использованием проверки типов:
+
 ```typescript
 function processInput(input: string | number) {
   if (typeof input === 'string') {
@@ -40,9 +45,10 @@ function processInput(input: string | number) {
   }
 }
 
-processInput("Hello"); // Input is a string: Hello
-processInput(42);     // Input is a number: 42
+processInput('Hello'); // Input is a string: Hello
+processInput(42); // Input is a number: 42
 ```
+
 В этом примере функция processInput принимает параметр типа string | number. Внутри функции мы проверяем тип значения input с помощью оператора typeof и выполняем соответствующую логику в зависимости от типа значения.
 
 Объединения (union) в TypeScript позволяют более гибко работать с различными типами данных и обрабатывать разные сценарии в зависимости от типа значения.
