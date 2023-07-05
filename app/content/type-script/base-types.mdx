@@ -1,0 +1,136 @@
+---
+title: Base types
+---
+
+Базовые типы данных:
+
+1. **number** - число:
+
+```typescript
+let age: number = 30;
+let pi: number = 3.14;
+```
+
+2. **string** - строка:
+
+```typescript
+let name: string = "John";
+let message: string = 'Hello';
+```
+
+3. **boolean** - булев тип:
+
+```typescript
+Copy code
+let isLogged: boolean = true;
+let hasPermission: boolean = false;
+```
+
+4. **null и undefined** - отдельные типы, представляющие значения null и undefined соответственно:
+
+```typescript
+let value1: null = null;
+let value2: undefined = undefined;
+```
+
+5. **object** - объект, не являющийся примитивным типом данных:
+
+```typescript
+let person: object = { name: 'John', age: 30 };
+```
+
+6. **array** - массив:
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4];
+let names: string[] = ['John', 'Jane', 'Alice'];
+```
+
+7. **tuple** - кортеж, представляющий фиксированный набор элементов с определенными типами:
+
+```typescript
+let coordinates: [number, number] = [10, 20];
+```
+
+8. **any** - тип, который может принимать значения любого типа:
+
+```typescript
+let data: any = 5;
+data = 'Hello';
+```
+
+9. **void** - отсутствие возвращаемого значения (обычно используется для функций, которые ничего не возвращают):
+
+```typescript
+function logMessage(): void {
+  console.log('Hello');
+}
+```
+
+Проверка типа в TypeScript может быть выполнена с помощью оператора **typeof**, оператора **instanceof** и оператора проверки типа **(as)**.
+
+Примеры проверки типа:
+
+```typescript
+let value: number = 5;
+
+if (typeof value === 'number') {
+  console.log('value is a number');
+}
+
+if (value instanceof Array) {
+  console.log('value is an array');
+}
+
+let data: any = 'Hello';
+let message: string = data as string;
+```
+
+**Enum**, **Symbol** и **Never** являются дополнительными типами данных в TypeScript, которые расширяют его функциональность и позволяют более точно описывать структуру и поведение данных в программе.
+
+1. **Enum (перечисления)** - это набор именованных значений, которые представляют определенные константы. Перечисления облегчают работу с наборами значений, добавляя им имена и обеспечивая типобезопасность.
+
+```typescript
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+
+let backgroundColor: Color = Color.Red;
+```
+
+В этом примере Color - это перечисление с тремя возможными значениями: Red, Green и Blue. Перечисления в TypeScript начинаются с 0, но значения могут быть явно указаны, например, Red = 1.
+
+2. **Symbol** - это уникальный и неизменяемый тип данных, который может быть использован в качестве ключа для свойств объектов. Каждый Symbol является уникальным и не может быть равным другому Symbol.
+
+```typescript
+const symbol1 = Symbol();
+const symbol2 = Symbol('description');
+
+let obj = {
+  [symbol1]: 'value',
+};
+
+console.log(obj[symbol1]);  // 'value'
+```
+
+В этом примере symbol1 и symbol2 представляют уникальные Symbol значения, и symbol1 используется в качестве ключа для свойства объекта.
+
+3. **Never** представляет недостижимый код и используется для обозначения ситуаций, когда функция никогда не должна завершаться или когда что-то невозможно.
+
+```typescript
+function throwError(message: string): never {
+  throw new Error(message);
+}
+
+function infiniteLoop(): never {
+  while (true) {
+    // Бесконечный цикл
+  }
+}
+```
+
+В этом примере функция throwError никогда не возвращает значение и всегда генерирует исключение. Функция infiniteLoop также никогда не завершается.
+
+[Ссылка](https://metanit.com/web/typescript/2.5.php)

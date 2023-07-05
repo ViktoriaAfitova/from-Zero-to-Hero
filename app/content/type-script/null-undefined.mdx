@@ -1,0 +1,59 @@
+---
+title: Null & undefined
+---
+
+Cпециальные типы **undefined** и **null**, которые принимают соответствующие значения undefined и null.
+
+По умолчанию, если параметр компиляции **strictNullChecks** не включен (значение по умолчанию — false), undefined и null могут быть присвоены переменным других типов. Например:
+
+```typescript
+let a: undefined = undefined;
+let b: null = null;
+
+let x: number = undefined;
+console.log(x); // undefined
+
+x = null;
+console.log(x); // null
+
+x = 5;
+console.log(x); // 5
+```
+Здесь переменная x имеет тип number, но мы можем присвоить ей значения undefined и null. В таком случае null и undefined рассматриваются как подтипы других типов.
+
+Но использование undefined и null без проверки может привести к потенциальным ошибкам, поэтому рекомендуется включить параметр **strictNullChecks** при компиляции TypeScript. Это можно сделать в файле конфигурации tsconfig.json или при компиляции через командную строку:
+
+```bash
+tsc --strictNullChecks
+```
+При включенном **strictNullChecks** компилятор TypeScript будет выдавать ошибку, если попытаться присвоить undefined или null переменной другого типа.
+
+Но существуют ситуации, когда неизвестно, будет ли значение null или какое-то другое конкретное значение. В таких случаях можно использовать объединение типов.
+
+```typescript
+let userId: number | null = null;
+
+function printId(id: number | null) {
+  if (id === null) {
+    console.log("User is absent");
+  } else {
+    console.log(`User ID: ${id}`);
+  }
+}
+
+printId(userId); // User is absent
+
+userId = 45;
+printId(userId); // User ID: 45
+```
+В этом примере переменная userId имеет тип объединения number | null, поэтому она может принимать как числовые значения, так и значение null. Функция printId принимает параметр id с типом объединения number | null, что позволяет ей обрабатывать и числовые значения, и null.
+
+**Оператор ! (non-null assertion operator)** позволяет указать, что объект не может иметь значение null или undefined.
+
+```typescript
+const header: HTMLElement | null = document.getElementById('header');
+header!.innerText = 'Hello TypeScript!';
+```
+Здесь document.getElementById() возвращает элемент веб-страницы типа HTMLElement | null, но мы уверены, что получим непустой элемент, поэтому используем оператор
+
+[Ссылка](https://metanit.com/web/typescript/2.8.php)
