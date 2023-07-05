@@ -13,8 +13,8 @@ title: Generation of custom events
 ```javascript
 const event = new CustomEvent('customEvent', {
   detail: {
-    message: 'Hello, world!'
-  }
+    message: 'Hello, world!',
+  },
 });
 ```
 
@@ -28,10 +28,11 @@ element.dispatchEvent(event);
 3. Обработка события путем привязки обработчика события с помощью **addEventListener()**. Обработчик события будет вызываться, когда пользовательское событие инициируется.
 
 ```javascript
-element.addEventListener('customEvent', function(event) {
+element.addEventListener('customEvent', function (event) {
   console.log('Received custom event:', event.detail.message);
 });
 ```
+
 Теперь, когда пользовательское событие **customEvent** инициируется, обработчик будет вызываться, и выведется сообщение 'Received custom event: Hello, world!'.
 
 Генерация пользовательских событий полезна, когда нужно симулировать события, которые могут произойти взаимодействием пользователя с приложением.

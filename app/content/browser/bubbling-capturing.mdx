@@ -51,17 +51,29 @@ Outer div clicked!
 2. Пример использования механизма захвата:
 
 ```javascript
-outer.addEventListener('click', function(event) {
-  console.log('Outer div clicked!');
-}, true);
+outer.addEventListener(
+  'click',
+  function (event) {
+    console.log('Outer div clicked!');
+  },
+  true,
+);
 
-inner.addEventListener('click', function(event) {
-  console.log('Inner div clicked!');
-}, true);
+inner.addEventListener(
+  'click',
+  function (event) {
+    console.log('Inner div clicked!');
+  },
+  true,
+);
 
-button.addEventListener('click', function(event) {
-  console.log('Button clicked!');
-}, true);
+button.addEventListener(
+  'click',
+  function (event) {
+    console.log('Button clicked!');
+  },
+  true,
+);
 ```
 
 В этом случае, если нажать на кнопку 'Click me', консоль выведет:
@@ -71,6 +83,5 @@ Outer div clicked!
 Inner div clicked!
 Button clicked
 ```
-
 
 [Ссылка](https://learn.javascript.ru/bubbling-and-capturing)

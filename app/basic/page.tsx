@@ -2,8 +2,10 @@ import Link from 'next/link';
 import {
   allDocBrowsers,
   allDocJs,
+  allDocTs,
   DocBrowser,
   DocJS,
+  DocTS,
 } from 'contentlayer/generated';
 import Image from 'next/image';
 
@@ -29,9 +31,20 @@ function DocBrowserCard(doc: DocBrowser) {
   );
 }
 
+function DocTsCard(doc: DocTS) {
+  return (
+    <Link href={`/type-script/${doc.slugAsParams}`}>
+      <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+        <h2 className='hover:text-gray'>{doc.title}</h2>
+      </div>
+    </Link>
+  );
+}
+
 const Basic = () => {
   const docs = allDocJs;
   const docsBrowser = allDocBrowsers;
+  const docsTs = allDocTs;
 
   return (
     <div className='flex flex-col h-screen'>
@@ -85,8 +98,10 @@ const Basic = () => {
                 className='mb-10'
               />
             </div>
-            <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
-              <h2 className='hover:text-gray'>...in progress</h2>
+            <div>
+              {docsTs.map((doc, title) => (
+                <DocTsCard key={title} {...doc} />
+              ))}
             </div>
           </div>
         </nav>
