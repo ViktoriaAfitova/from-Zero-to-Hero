@@ -88,20 +88,86 @@ const Basic = () => {
             </div>
           </div>
           <div className='flex flex-col'>
-            <div className='flex flex-col items-center'>
-              <h2 className='font-bold text-pinkLight mb-4'>TypeScript</h2>
-              <Image
-                src='/arrowDownIcon.png'
-                alt='arrow'
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className='mb-10'
-              />
+            <div className='flex flex-col mb-10'>
+              <div className='flex flex-col items-center'>
+                <h2 className='font-bold text-pinkLight mb-4'>
+                  Data structures and algorithms
+                </h2>
+                <Image
+                  src='/arrowDownIcon.png'
+                  alt='arrow'
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  className='mb-10'
+                />
+              </div>
+              <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+                <h2 className='hover:text-gray'>...in progress</h2>
+              </div>
             </div>
-            <div>
-              {docsTs.map((doc, title) => (
-                <DocTsCard key={title} {...doc} />
-              ))}
+            <div className='flex flex-col mb-10'>
+              <div className='flex flex-col items-center'>
+                <h2 className='font-bold text-pinkLight mb-4'>REST API</h2>
+                <Image
+                  src='/arrowDownIcon.png'
+                  alt='arrow'
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  className='mb-10'
+                />
+              </div>
+              <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+                <h2 className='hover:text-gray'>...in progress</h2>
+              </div>
+            </div>
+            <div className='flex flex-col mb-10'>
+              <div className='flex flex-col items-center'>
+                <h2 className='font-bold text-pinkLight mb-4'>Webpack</h2>
+                <Image
+                  src='/arrowDownIcon.png'
+                  alt='arrow'
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  className='mb-10'
+                />
+              </div>
+              <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+                <h2 className='hover:text-gray'>...in progress</h2>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-col'>
+            <div className='flex flex-col mb-10'>
+              <div className='flex flex-col items-center'>
+                <h2 className='font-bold text-pinkLight mb-4'>TypeScript</h2>
+                <Image
+                  src='/arrowDownIcon.png'
+                  alt='arrow'
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  className='mb-10'
+                />
+              </div>
+              <div>
+                {docsTs.map((doc, title) => (
+                  <DocTsCard key={title} {...doc} />
+                ))}
+              </div>
+            </div>
+            <div className='flex flex-col'>
+              <div className='flex flex-col items-center'>
+                <h2 className='font-bold text-pinkLight mb-4'>HTML/CSS/BEM</h2>
+                <Image
+                  src='/arrowDownIcon.png'
+                  alt='arrow'
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  className='mb-10'
+                />
+              </div>
+              <div className='p-2 mb-2 border-2 border-gray rounded-md shadow-md bg-white w-80 cursor-pointer'>
+                <h2 className='hover:text-gray'>...in progress</h2>
+              </div>
             </div>
           </div>
         </nav>
