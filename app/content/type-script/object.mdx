@@ -2,4 +2,74 @@
 title: Object
 ---
 
+В TypeScript можно создавать сложные объекты, которые состоят из других объектов и примитивных данных, а также задавать типы свойств объектов.
+
+#### Создание объекта и доступ к его свойствам:
+```typescript
+let person = {name: 'Tom', age: 23};
+console.log(person.name); // Tom
+console.log(person['name']); // Tom
+```
+
+#### Ограничения при изменении объекта:
+Несмотря на то, что это фактически тот же самый объект, что можно использовать в JavaScript, в силу строготипизированности TypeScript в данном случае присутствуют ограничения.
+```typescript
+let person = {name: 'Tom', age: 23};
+person = {name: 'Bob'}; // Ошибка, типы не совпадают
+```
+На второй строке ошибка, поскольку компилятор после первой строки предполагает, что объект person будет иметь два свойства name и age, которые имеют тип string и number соответственно. То есть в данном случае переменная person представляет тип { name: string; age: number }. И можно написать так:
+```typescript
+let person: { name: string; age: number } = { name: 'Tom', age: 23 };
+console.log(person.name);
+```
+Поэтому данной переменной можно присвоить другой объект, который соответствует типу { name: string; age: number } по названиям, количеству и типу свойств, как в следующем случае
+```typescript
+let person = { name: 'Tom', age: 23 };
+person = { name: 'Bob', age: 35 };      // Верно
+```
+
+#### Указание типа объекта:
+```typescript
+let person: {name: string; age: number} = {name: 'Tom', age: 23};
+console.log(person.name); // Tom
+```
+
+#### Необязательные свойства:
+```typescript
+let person: {name: string; age?: number}; // Свойство age - необязательное
+person = {name: 'Tom', age: 23};
+console.log(person.name); // Tom
+person = {name: 'Bob'}; // Верно, свойство age - необязательное
+console.log(person.name); // Bob
+```
+
+#### Проверка наличия свойства с помощью оператора in:
+```typescript
+let tom: {name: string; age?: number} = {name: 'Tom', age: 23};
+let bob: {name: string; age?: number} = {name: 'Bob'};
+
+function printUser(user: {name: string; age?: number}) {
+    if ('age' in user) {
+        console.log(`Name: ${user.name} Age: ${user.age}`);
+    } else {
+        console.log(`Name: ${user.name}`);
+    }
+}
+
+printUser(tom); // Name: Tom Age: 23
+printUser(bob); // Name: Bob
+```
+
+#### Декомпозиция объектов-параметров:
+```typescript
+function printUser({name, age}: {name: string; age: number}) {
+    console.log(`name: ${name} age: ${age}`);
+}
+
+let tom = {name: 'Tom', age: 36};
+printUser(tom); // name: Tom age: 36
+```
+
+В функциях также можно указывать типы объектов для параметров и возвращаемого значения, чтобы более точно определить структуру объектов, передаваемых или возвращаемых функцией.
+
 [Ссылка](https://metanit.com/web/typescript/2.3.php)
