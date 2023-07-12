@@ -1,0 +1,74 @@
+---
+title: Enum
+---
+
+**Enum (перечисление)** представляет набор именованных значений, которым можно присвоить числовые или строковые значения. Enums облегчают работу с наборами значений, добавляя им имена и обеспечивая типобезопасность.
+
+- Синтаксис для объявления enum  выглядит следующим образом:
+
+```typescript
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+```
+В этом примере enum Color представляет набор значений: Red, Green и Blue. По умолчанию каждому значению присваивается числовое значение, начиная с 0 и увеличиваясь на единицу для каждого последующего значения. Таким образом, Red будет иметь значение 0, Green - 1 и Blue - 2.
+
+- Можно явно присвоить числовые значения элементам enum:
+
+```typescript
+enum Color {
+  Red = 1,
+  Green = 2,
+  Blue = 4,
+}
+```
+В этом случае Red будет иметь значение 1, Green - 2 и Blue - 4. Значения можно указывать явно и продолжать последовательность чисел.
+
+- Также возможно присваивание строковых значений элементам enum:
+
+```typescript
+enum Color {
+  Red = 'RED',
+  Green = 'GREEN',
+  Blue = 'BLUE',
+}
+```
+В этом примере Red будет иметь значение 'RED', Green - 'GREEN', а Blue - 'BLUE'. Таким образом, значения элементов enum могут быть и числовыми, и строковыми.
+
+- Для использования значений enum можно обратиться к ним по имени:
+
+```typescript
+let color: Color = Color.Green;
+console.log(color); // 1
+```
+В этом примере создаётся переменная color типа Color и присваивается значение Color.Green. При выводе значения переменной color в консоль получаем 1, так как Green имеет числовое значение 1.
+
+- Можно использовать enum для свойств и аргументов функций:
+
+```typescript
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+
+function move(direction: Direction) {
+  if (direction === Direction.Up) {
+    console.log('Moving up');
+  } else if (direction === Direction.Down) {
+    console.log('Moving down');
+  } else if (direction === Direction.Left) {
+    console.log('Moving left');
+  } else if (direction === Direction.Right) {
+    console.log('Moving right');
+  }
+}
+
+move(Direction.Left); // Moving left
+```
+Enum Direction представляет четыре возможных направления. Функция move принимает аргумент direction типа Direction и выводит сообщение о перемещении в соответствующем направлении, используя сравнение значений.
+
+[Ссылка](https://metanit.com/web/typescript/2.11.php)
