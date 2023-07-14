@@ -37,7 +37,7 @@ console.log(user[1]); // 37
 ```typescript
 let user: [string, number] = ['Tom', 36];
 for (const prop of user) {
-    console.log(prop);
+  console.log(prop);
 }
 ```
 
@@ -47,8 +47,8 @@ for (const prop of user) {
 
 ```typescript
 function printUser(user: [string, number]) {
-    console.log(user[0]);
-    console.log(user[1]);
+  console.log(user[0]);
+  console.log(user[1]);
 }
 let tom: [string, number] = ['Tom', 36];
 printUser(tom);
@@ -58,7 +58,7 @@ printUser(tom);
 
 ```typescript
 function createUser(name: string, age: number): [string, number] {
-    return [name, age];
+  return [name, age];
 }
 let user = createUser('Bob', 41);
 console.log(user[0]);

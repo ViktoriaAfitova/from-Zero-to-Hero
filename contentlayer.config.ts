@@ -62,10 +62,29 @@ export const DocTS = defineDocumentType(() => ({
   },
 }));
 
+export const DocReact = defineDocumentType(() => ({
+  name: 'DocReact',
+  filePathPattern: `react/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+    slugAsParams: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: 'app/content',
   disableImportAliasWarning: true,
-  documentTypes: [DocJS, DocBrowser, DocTS],
+  documentTypes: [DocJS, DocBrowser, DocTS, DocReact],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
