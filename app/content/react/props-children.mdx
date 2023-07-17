@@ -1,0 +1,27 @@
+---
+title: props.children
+---
+
+В любом компоненте доступны props.children. Это контент между открывающим и закрывающим тегом компонента.
+
+```jsx
+<Welcome>Привет, мир!</Welcome>
+```
+
+Строка Привет, мир! доступна в **props.children** в компоненте Welcome:
+
+```jsx
+function Welcome(props) {
+  return <p>{props.children}</p>;
+}
+```
+
+Для классовых компонентов используется this.props.children:
+
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <p>{this.props.children}</p>;
+  }
+}
+```
