@@ -8,7 +8,7 @@ function DocReactCard(doc: DocReact) {
   return (
     <Link href={`/react/${doc.slugAsParams}`}>
       <div className='p-2 mb-2 border-2 border-pinkLight rounded-md shadow-md bg-white w-80 cursor-pointer'>
-        <h2 className='hover:text-pinkLpinkLight'>{doc.title}</h2>
+        <h2 className='hover:text-pinkLight'>{doc.title}</h2>
       </div>
     </Link>
   );
